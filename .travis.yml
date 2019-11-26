@@ -1,5 +1,4 @@
 sudo: required
-language: ruby
 services:
   - docker
 env:
@@ -17,7 +16,6 @@ before_install:
   - gcloud config set compute/zone us-central1-a
   - gcloud container clusters get-credentials multi-k8
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t s/test -f ./client/Dockerfile.dev ./client
 
 
 deploy:
